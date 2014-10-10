@@ -1,12 +1,13 @@
-;;; ini-model.el -- Major mode for Windows-style ini files.
+;;; ini-model.el --- Major mode for Windows-style ini files.
 
 ;; Copyright (C) 2014 Anders Lindgren
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.0
+;; Version: 0.0.1
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
+;; Package-Requires: ((old-emacs-support "0.0.2"))
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -47,13 +48,16 @@
 
 ;; Supported Emacs Versions:
 ;;
-;; This package is primarily designed for Emacs 24. However, with the
-;; help of the companion package [anders-old-emacs-support][1]
-;; it can be used with earlier Emacs versions, at least from Emacs 22.
+;; This package is designed for Emacs 24. However, with the help of
+;; the companion package [old-emacs-support][1] it can be used with
+;; earlier Emacs versions, at least from Emacs 22.
 ;;
-;; [1]: https://github.com/Lindydancer/andersl-old-emacs-support
+;; [1]: https://github.com/Lindydancer/old-emacs-support
 
 ;;; Code:
+
+;; Load backward compatibility package, if present.
+(require 'old-emacs-support nil t)
 
 (defvar ini-mode-syntax-table
   (let ((table (make-syntax-table)))
@@ -73,6 +77,7 @@
      (1 font-lock-variable-name-face)))
   "Highlight rules for `ini-mode'.")
 
+;;;###autoload
 (define-derived-mode ini-mode prog-mode "ini"
   "Major mode for editing Windows-style ini files."
   (setq font-lock-defaults '(ini-font-lock-keywords nil)))
