@@ -1,10 +1,10 @@
-;;; ini-model.el --- Major mode for Windows-style ini files.
+;;; ini-mode.el --- Major mode for Windows-style ini files.
 
 ;; Copyright (C) 2014 Anders Lindgren
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.1
+;; Version: 0.0.2
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
 ;; Package-Requires: ((old-emacs-support "0.0.2"))
@@ -41,7 +41,12 @@
 
 ;; Installation:
 ;;
-;; Place the following lines in a suitable initialization file:
+;; This package is designed to be installed as a "package". Once
+;; installed, it is automatically used when opening files the .ini
+;; extension.
+;;
+;; Anternatively, you can place the following lines in a suitable
+;; initialization file:
 ;;
 ;;     (autoload 'ini-mode "ini-mode" nil t)
 ;;     (add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
@@ -81,5 +86,7 @@
 (define-derived-mode ini-mode prog-mode "ini"
   "Major mode for editing Windows-style ini files."
   (setq font-lock-defaults '(ini-font-lock-keywords nil)))
+
+;;;###autoload(add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
 
 ;;; ini-mode.el ends here

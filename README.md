@@ -1,7 +1,7 @@
-# ini-model - Major mode for Windows-style ini files
+# ini-mode - Major mode for Windows-style ini files
 
 *Author:* Anders Lindgren<br>
-*Version:* 0.0.1<br>
+*Version:* 0.0.2<br>
 *URL:* [https://github.com/Lindydancer/ini-mode](https://github.com/Lindydancer/ini-mode)<br>
 
 Major mode for Windows-style ini files.
@@ -20,7 +20,12 @@ my attempt at a modern, simple, implementation.
 
 ## Installation
 
-Place the following lines in a suitable initialization file:
+This package is designed to be installed as a "package". Once
+installed, it is automatically used when opening files the .ini
+extension.
+
+Anternatively, you can place the following lines in a suitable
+initialization file:
 
         (autoload 'ini-mode "ini-mode" nil t)
         (add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
