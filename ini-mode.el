@@ -1,13 +1,12 @@
 ;;; ini-mode.el --- Major mode for Windows-style ini files.
 
-;; Copyright (C) 2014 Anders Lindgren
+;; Copyright (C) 2014-2015 Anders Lindgren
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.2
+;; Version: 0.0.3
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
-;; Package-Requires: ((old-emacs-support "0.0.2"))
 
 ;; This program is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -28,16 +27,20 @@
 ;;
 ;; Features:
 ;;
-;; * Highlight support.
+;; * Syntax highlight support.
 ;;
-;; * Inherits from `prog-mode'. The effect is that global minor modes
-;;   that activates themsleves in `prog-mode' buffers automatically
-;;   work in `ini-mode'.
+;; * Inherits from `prog-mode' (if present). The effect is that global
+;;   minor modes that activates themsleves in `prog-mode' buffers
+;;   automatically work in `ini-mode'.
+;;
+;; Example:
+;;
+;; ![Example](doc/demo.png)
 
 ;; Background:
 ;;
 ;; There are many implementation of major modes for ini files. This is
-;; my attempt at a modern, simple, implementation.
+;; my attempt of a modern, simple, implementation.
 
 ;; Installation:
 ;;
@@ -51,18 +54,7 @@
 ;;     (autoload 'ini-mode "ini-mode" nil t)
 ;;     (add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
 
-;; Supported Emacs Versions:
-;;
-;; This package is designed for Emacs 24. However, with the help of
-;; the companion package [old-emacs-support][1] it can be used with
-;; earlier Emacs versions, at least from Emacs 22.
-;;
-;; [1]: https://github.com/Lindydancer/old-emacs-support
-
 ;;; Code:
-
-;; Load backward compatibility package, if present.
-(require 'old-emacs-support nil t)
 
 (defvar ini-mode-syntax-table
   (let ((table (make-syntax-table)))
@@ -82,8 +74,16 @@
      (1 font-lock-variable-name-face)))
   "Highlight rules for `ini-mode'.")
 
+(defmacro ini-define-prog-mode (mode name &rest args)
+  "Define a major mode for a programming language.
+If `prog-mode' is defined, inherit from it."
+  (declare (indent defun))
+  `(define-derived-mode
+     ,mode ,(and (fboundp 'prog-mode) 'prog-mode)
+     ,name ,@args))
+
 ;;;###autoload
-(define-derived-mode ini-mode prog-mode "ini"
+(ini-define-prog-mode ini-mode "ini"
   "Major mode for editing Windows-style ini files."
   (setq font-lock-defaults '(ini-font-lock-keywords nil)))
 
