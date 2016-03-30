@@ -4,7 +4,7 @@
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.3
+;; Version: 0.0.4
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
 
@@ -82,7 +82,7 @@ If `prog-mode' is defined, inherit from it."
      ,mode ,(and (fboundp 'prog-mode) 'prog-mode)
      ,name ,@args))
 
-;;;###autoload
+;;;###autoload(autoload 'ini-mode "ini-mode" nil t)
 (ini-define-prog-mode ini-mode "ini"
   "Major mode for editing Windows-style ini files."
   (setq font-lock-defaults '(ini-font-lock-keywords nil)))
