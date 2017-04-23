@@ -1,10 +1,10 @@
 ;;; ini-mode.el --- Major mode for Windows-style ini files.
 
-;; Copyright (C) 2014-2015 Anders Lindgren
+;; Copyright (C) 2014-2017 Anders Lindgren
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.4
+;; Version: 0.0.5
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
 
@@ -29,7 +29,7 @@
 ;;
 ;; * Syntax highlight support.
 ;;
-;; * Inherits from `prog-mode' (if present). The effect is that global
+;; * Inherits from `prog-mode' (if present).  The effect is that global
 ;;   minor modes that activates themsleves in `prog-mode' buffers
 ;;   automatically work in `ini-mode'.
 ;;
@@ -39,12 +39,12 @@
 
 ;; Background:
 ;;
-;; There are many implementation of major modes for ini files. This is
+;; There are many implementation of major modes for ini files.  This is
 ;; my attempt of a modern, simple, implementation.
 
 ;; Installation:
 ;;
-;; This package is designed to be installed as a "package". Once
+;; This package is designed to be installed as a "package".  Once
 ;; installed, it is automatically used when opening files the .ini
 ;; extension.
 ;;
@@ -75,7 +75,11 @@
   "Highlight rules for `ini-mode'.")
 
 (defmacro ini-define-prog-mode (mode name &rest args)
-  "Define a major mode for a programming language.
+  "Define major mode MODE for a programming language.
+
+The mode will be named NAME and remaining arguments, ARGS, are
+passed to `define-derived-mode'.
+
 If `prog-mode' is defined, inherit from it."
   (declare (indent defun))
   `(define-derived-mode
