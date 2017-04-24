@@ -93,4 +93,5 @@ If `prog-mode' is defined, inherit from it."
 
 ;;;###autoload(add-to-list 'auto-mode-alist '("\\.ini\\'" . ini-mode))
 
+(provide 'ini-mode)
 ;;; ini-mode.el ends here
