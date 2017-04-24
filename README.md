@@ -1,7 +1,7 @@
 # ini-mode - Major mode for Windows-style ini files
 
 *Author:* Anders Lindgren<br>
-*Version:* 0.0.5<br>
+*Version:* 0.0.6<br>
 *URL:* [https://github.com/Lindydancer/ini-mode](https://github.com/Lindydancer/ini-mode)<br>
 
 Major mode for Windows-style ini files.
