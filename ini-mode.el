@@ -70,7 +70,7 @@
 (defvar ini-font-lock-keywords
   '(("^\\[\\(.*\\)\\]"
      (1 font-lock-function-name-face))
-    ("^\\([^ \t\n=]+\\) *="
+    ("^[ \t]*\\([^ \t\n=]+\\) *="
      (1 font-lock-variable-name-face)))
   "Highlight rules for `ini-mode'.")
 
