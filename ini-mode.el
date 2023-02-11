@@ -4,7 +4,8 @@
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.6
+;; Version: 0.0.7
+;; Package-Requires: ((emacs "24.1"))
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
 
@@ -30,7 +31,7 @@
 ;; * Syntax highlight support.
 ;;
 ;; * Inherits from `prog-mode' (if present).  The effect is that global
-;;   minor modes that activates themsleves in `prog-mode' buffers
+;;   minor modes that activates themselves in `prog-mode' buffers
 ;;   automatically work in `ini-mode'.
 ;;
 ;; Example:
@@ -48,7 +49,7 @@
 ;; installed, it is automatically used when opening files the .ini
 ;; extension.
 ;;
-;; Anternatively, you can place the following lines in a suitable
+;; Alternatively, you can place the following lines in a suitable
 ;; initialization file:
 ;;
 ;;     (autoload 'ini-mode "ini-mode" nil t)
@@ -70,24 +71,12 @@
 (defvar ini-font-lock-keywords
   '(("^\\[\\(.*\\)\\]"
      (1 font-lock-function-name-face))
-    ("^\\([^ \t\n=]+\\) *="
+    ("^\\s-*\\([^ \t\n=]+\\)\\s-*="
      (1 font-lock-variable-name-face)))
   "Highlight rules for `ini-mode'.")
 
-(defmacro ini-define-prog-mode (mode name &rest args)
-  "Define major mode MODE for a programming language.
-
-The mode will be named NAME and remaining arguments, ARGS, are
-passed to `define-derived-mode'.
-
-If `prog-mode' is defined, inherit from it."
-  (declare (indent defun))
-  `(define-derived-mode
-     ,mode ,(and (fboundp 'prog-mode) 'prog-mode)
-     ,name ,@args))
-
-;;;###autoload(autoload 'ini-mode "ini-mode" nil t)
-(ini-define-prog-mode ini-mode "ini"
+;;;###autoload
+(define-derived-mode ini-mode prog-mode "ini"
   "Major mode for editing Windows-style ini files."
   (setq font-lock-defaults '(ini-font-lock-keywords nil)))
 

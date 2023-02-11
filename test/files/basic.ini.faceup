@@ -1,0 +1,27 @@
+«x:// C++ style comment
+»
+«x:/* C style comment */»
+
+«x:; Lisp style comment
+»
+[«f:a header»]
+
+«v:key»=10
+
+# Comment
+
+«v:key_with_space» = and a value
+
+[«f:another header»]
+
+«v:key_withouth_value»=value
+
+«v:key_withouth_value_with_space» =
+
+   «v:an_indented_key» = value
+
+	«v:tab_before» = value
+
+«v:tab_after»	= value
+
+	«v:tab_before_and_after»	= value
