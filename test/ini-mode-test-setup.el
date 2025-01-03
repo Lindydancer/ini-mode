@@ -1,4 +1,4 @@
-;;; ini-mode-test-setup.el --- Setup and execute all tests.
+;;; ini-mode-test-setup.el --- Setup and execute all tests.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023 Anders Lindgren
 

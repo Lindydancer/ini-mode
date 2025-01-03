@@ -1,4 +1,4 @@
-;;; ini-mode-test-files.el --- Test for ini-mode.
+;;; ini-mode-test-files.el --- Tests for `ini-mode'.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023 Anders Lindgren
 

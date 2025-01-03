@@ -1,7 +1,7 @@
 # ini-mode - Major mode for Windows-style ini files
 
 *Author:* Anders Lindgren<br>
-*Version:* 0.0.7<br>
+*Version:* 0.0.8<br>
 *URL:* [https://github.com/Lindydancer/ini-mode](https://github.com/Lindydancer/ini-mode)<br>
 
 Major mode for Windows-style ini files.
@@ -9,9 +9,9 @@ Major mode for Windows-style ini files.
 Features:
 
 * Syntax highlight support.
-* Inherits from `prog-mode` (if present).  The effect is that global
-  minor modes that activates themselves in `prog-mode` buffers
-  automatically work in `ini-mode`.
+* Inherits from `prog-mode`.  The effect is that global minor modes
+  that activates themselves in `prog-mode` buffers automatically
+  work in `ini-mode`.
 
 ### Example
 

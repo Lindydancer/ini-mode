@@ -1,4 +1,4 @@
-;; ini-mode-screenshot.el --- prepare Emacs for screenshot of ini-mode.
+;; ini-mode-screenshot.el --- Prepare for screenshot of `ini-mode'.  -*- lexical-binding: t; -*-
 
 ;; Usage:
 ;;

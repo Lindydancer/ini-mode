@@ -1,10 +1,10 @@
-;;; ini-mode.el --- Major mode for Windows-style ini files.
+;;; ini-mode.el --- Major mode for Windows-style ini files.  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2014-2017 Anders Lindgren
 
 ;; Author: Anders Lindgren
 ;; Keywords: languages, faces
-;; Version: 0.0.7
+;; Version: 0.0.8
 ;; Package-Requires: ((emacs "24.1"))
 ;; Created: 2014-03-19
 ;; URL: https://github.com/Lindydancer/ini-mode
@@ -30,9 +30,9 @@
 ;;
 ;; * Syntax highlight support.
 ;;
-;; * Inherits from `prog-mode' (if present).  The effect is that global
-;;   minor modes that activates themselves in `prog-mode' buffers
-;;   automatically work in `ini-mode'.
+;; * Inherits from `prog-mode'.  The effect is that global minor modes
+;;   that activates themselves in `prog-mode' buffers automatically
+;;   work in `ini-mode'.
 ;;
 ;; Example:
 ;;
